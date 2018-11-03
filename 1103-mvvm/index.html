@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="name">{{ name }}</h1>
+</body>
+<script src="./observe.js"></script>
+<script src="./watcher.js"></script>
+<script src="./selfVue.js"></script>
+<script type="text/javascript">
+    var ele = document.querySelector('#name');
+    var selfVue = new SelfVue({ name: 'hello world' }, ele, 'name');
+    window.setTimeout(function () {
+        console.log('name 值变了');
+        selfVue.data.name = 'hello vue!'
+    }, 1000)
+</script>
+
+</html>
