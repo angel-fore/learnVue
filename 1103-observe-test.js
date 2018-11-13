@@ -40,3 +40,5 @@ library.book1.name = "vue权威指南";
 library.book2 = "无此书籍";
 console.log("~~~~~~~~~~");
 console.log(library.book1.name);
+
+
