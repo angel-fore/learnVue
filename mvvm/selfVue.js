@@ -1,17 +1,16 @@
-function SelfVue(data, el, exp) {
+function SelfVue(options) {
     const self = this;
-    this.data = data;
+    this.vm = this;
+    this.data = options.data;
 
-    Object.keys(data).forEach(function(key) {
+    Object.keys(this.data).forEach(function(key) {
         self.proxyKeys(key);
     });
 
-    observe(data);
+    observe(this.data);
 
-    el.innerHTML = this[exp]; //初始化模板数据的值
-    new Watcher(this, exp, function(value) {
-        el.innerHTML = value;
-    });
+    new Compile(options.el, this.vm);
+
     return this;
 }
 
