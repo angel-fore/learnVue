@@ -12,13 +12,14 @@ function observe(data) {
 
 function defineReacitve(data, key, val) {
     observe(val);
+    /**   data中的一个key对应一个dep，
+     **/
     var dep = new Dep();
     Object.defineProperty(data, key, {
         enumerable: true,
         configurable: true,
         get: function() {
             if (Dep.target) {
-                //看watcher.js
                 //需要添加订阅者
                 dep.addSub(Dep.target);
             }

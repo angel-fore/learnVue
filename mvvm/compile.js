@@ -46,8 +46,11 @@ Compile.prototype = {
         var self = this;
         var initText = this.vm[exp];
         this.updateText(node, initText); // 将初始化的数据初始化到视图中
+        /**
+         *  每一个变量都对应一个watcher
+         *  */
         new Watcher(this.vm, exp, function(value) {
-            console.log("****");
+            // console.log("*******", exp);
             // 生成订阅器并绑定更新函数
             self.updateText(node, value);
         });
